@@ -9,6 +9,7 @@ inherit core-image
 
 CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
+    psplash \
     term-prompt \
     tzdata \
  "
@@ -19,8 +20,8 @@ KERNEL_EXTRA_INSTALL = " \
  "
 
 WIFI_SUPPORT = " \
-    crda \
     iw \
+    linux-firmware-ath9k \
     linux-firmware-ralink \
     linux-firmware-rtl8192ce \
     linux-firmware-rtl8192cu \
@@ -65,8 +66,10 @@ DEV_EXTRAS = " \
 EXTRA_TOOLS_INSTALL = " \
     bc \
     bzip2 \
+    cursor-blink \
     devmem2 \
     dosfstools \
+    emmc-installer \
     ethtool \
     findutils \
     i2c-tools \
