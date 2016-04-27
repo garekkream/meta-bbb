@@ -1,0 +1,49 @@
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index eadbba3..b8398d0 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -13,6 +13,23 @@
+ / {
+ 	model = "TI AM335x BeagleBone Black";
+ 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
++
++    testowanie {
++        compatible = "simple-bus";
++        ranges;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        item1 {
++            compatible = "kg,testowo";
++            info1 = <0xFF>;
++        };
++
++        wstawka: item2 {
++            compatible = "kg,testowo2";
++            info2 = <0xAA>;
++        };
++    };
+ };
+ 
+ &ldo3_reg {
+@@ -91,6 +108,20 @@
+ 	};
+ };
+ 
++&i2c2 {
++
++    status = "okay";
++
++    mpu9255@68 {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        compatible = "is,mpu9255";
++        reg = <0x68>;
++    };
++};
++
+ &rtc {
+ 	system-power-controller;
+ };
++
++

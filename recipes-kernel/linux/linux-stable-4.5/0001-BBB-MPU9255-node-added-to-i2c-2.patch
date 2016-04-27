@@ -1,0 +1,32 @@
+From 58851aa2d29212fe42d2d6f6767c055624249084 Mon Sep 17 00:00:00 2001
+From: Krzysztof Garczynski <krzysztof.garczynski@gmail.com>
+Date: Wed, 27 Apr 2016 23:17:45 +0200
+Subject: [PATCH] BBB: MPU9255 node added to i2c-2
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 55c0e95..6c037df 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -91,6 +91,15 @@
+ 	};
+ };
+ 
++&i2c2 {
++    mpu9255@68 {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        compatible = "is,mpu9255";
++        reg = <0x68>;
++    };
++};
++
+ &rtc {
+ 	system-power-controller;
+ };
+-- 
+2.8.0
+
